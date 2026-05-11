@@ -60,3 +60,26 @@ public:
         return status;
     }
 };
+
+class Admin : public User
+{
+public:
+    Admin(string nama, string email)
+        : User(nama, email)
+    {
+    }
+
+    void showAllMember(Member members[], int jumlah)
+    {
+        for (int i = 0; i < jumlah; i++)
+        {
+            cout << "\nMember Ke-" << i + 1 << endl;
+            members[i].showProfile();
+        }
+    }
+
+    void toggleActivationMember(Member &member)
+    {
+        member.setStatus(!member.getStatus());
+    }
+};
